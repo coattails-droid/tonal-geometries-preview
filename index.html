@@ -1,4 +1,9 @@
-<!doctype html><html lang="en"><head>
+<!doctype html><html lang="en" data-theme="sunlight"><head>
+<script>
+  /* Theme is set before first paint: saved choice wins, otherwise Sunlight (the standard). */
+  (function(){try{var t=localStorage.getItem('coattails-theme');document.documentElement.setAttribute('data-theme',t==='warmgray'?'warmgray':'sunlight');}catch(e){document.documentElement.setAttribute('data-theme','sunlight');}})();
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFQNW5T87Y"></script>
 <script>
@@ -14,15 +19,60 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<style>*{box-sizing:border-box}body{margin:0;background:#0d0708;color:#e8e2d4;font:15px/1.6 'DejaVu Sans Mono',Menlo,Consolas,'Courier New',monospace}
-header{padding:48px 20px 24px;text-align:center}h1{font-weight:400;color:#ffc46e;letter-spacing:.08em;margin:0 0 8px;font-size:clamp(22px,4vw,36px)}header p{margin:0;color:#9a937f;letter-spacing:.12em;font-size:13px;text-transform:uppercase}
+<style>
+  /* Sunlight (default) — the branding guide standard. */
+  :root, :root[data-theme="sunlight"]{
+    --bg:#0d0708; --surface:#0d0708; --ink:#e8e2d4; --muted:#9a937f;
+    --line:#3a362c; --line-dark:#3a362c; --title:#ffc46e; --accent:#ffc46e;
+    --btn-bg:#ffc46e; --btn-ink:#14100a; --btn-hover:#ffa37e; --focus:#ffc46e;
+    --shadow-card:none;
+    --font-display:'DejaVu Sans Mono',Menlo,Consolas,'Courier New',monospace;
+    --font-body:'DejaVu Sans Mono',Menlo,Consolas,'Courier New',monospace;
+  }
+  /* Warm Gray (visitor alternate) — branding guide v1.1 Light theme. */
+  :root[data-theme="warmgray"]{
+    --bg:#E8E4DC; --surface:#F5F2EB; --ink:#111110; --muted:#57534A;
+    --line:#CFC9BB; --line-dark:#111110; --title:#000; --accent:#111110;
+    --btn-bg:#111110; --btn-ink:#F5F2EB; --btn-hover:#26241F; --focus:#111110;
+    --shadow-card:0 20px 38px -24px rgba(30,26,18,.35);
+    --font-display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  :root { color-scheme: dark; }
+  :root[data-theme="warmgray"] { color-scheme: light; }
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--font-body)}
+header{padding:48px 20px 24px;text-align:center}h1{font-weight:400;color:var(--title);letter-spacing:.08em;margin:0 0 8px;font-size:clamp(22px,4vw,36px)}header p{margin:0;color:var(--muted);letter-spacing:.12em;font-size:13px;text-transform:uppercase}
 main{max-width:1100px;margin:0 auto;padding:16px 20px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px}
-.card{background:transparent;border:1px solid #3a362c;border-radius:0;overflow:hidden}.frame{position:relative;aspect-ratio:1;background:#000}
+.card{background:transparent;border:1px solid var(--line);border-radius:0;overflow:hidden}.frame{position:relative;aspect-ratio:1;background:#000}
 .frame img,.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-.play{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#ffc46e;border:1px solid #ffc46e;padding:9px 22px;border-radius:0;font-size:14px;letter-spacing:.1em;cursor:pointer}.play:hover{background:#ffc46e;color:#000}
-.meta{padding:16px 18px 18px}h2{margin:0 0 10px;font-weight:400;color:#ffc46e;font-size:17px;letter-spacing:.06em}
-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:13px}dt{color:#9a937f}dd{margin:0;overflow-wrap:anywhere}@media(max-width:420px){dl{grid-template-columns:1fr;gap:0}dd{margin-bottom:6px}}
-.hint{color:#9a937f;font-size:12px;margin:12px 0 0;font-style:italic}.about{max-width:860px;margin:0 auto;padding:10px 20px 2px;line-height:1.7;text-align:center}.notes{max-width:860px;margin:0 auto;padding:0 20px 8px}.notes h2{margin:30px 0 10px}.notes p{margin:0 0 14px;line-height:1.7}.notes ul{margin:0 0 14px;padding-left:20px;line-height:1.7}.notes li{margin-bottom:6px}.notes ul ul{margin:6px 0 6px}.notes code{color:#ffc46e;overflow-wrap:anywhere}footer{text-align:center;color:#9a937f;font-size:12px;padding:0 20px 40px}</style></head><body>
+.play{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:rgba(0,0,0,.55);color:var(--accent);border:1px solid var(--accent);padding:9px 22px;border-radius:0;font-size:14px;letter-spacing:.1em;cursor:pointer}.play:hover{background:var(--btn-bg);color:var(--btn-ink)}
+.meta{padding:16px 18px 18px}h2{margin:0 0 10px;font-weight:400;color:var(--accent);font-size:17px;letter-spacing:.06em}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:13px}dt{color:var(--muted)}dd{margin:0;overflow-wrap:anywhere}@media(max-width:420px){dl{grid-template-columns:1fr;gap:0}dd{margin-bottom:6px}}
+.hint{color:var(--muted);font-size:12px;margin:12px 0 0;font-style:italic}.about{max-width:860px;margin:0 auto;padding:10px 20px 2px;line-height:1.7;text-align:center}.notes{max-width:860px;margin:0 auto;padding:0 20px 8px}.notes h2{margin:30px 0 10px}.notes p{margin:0 0 14px;line-height:1.7}.notes ul{margin:0 0 14px;padding-left:20px;line-height:1.7}.notes li{margin-bottom:6px}.notes ul ul{margin:6px 0 6px}.notes code{color:var(--accent);overflow-wrap:anywhere}footer{text-align:center;color:var(--muted);font-size:12px;padding:0 20px 40px}
+  /* ---------- theme toggle (guide v1.1) ---------- */
+  .topbar{display:flex;justify-content:flex-end;padding:20px 20px 0;}
+  .theme-toggle{display:inline-flex;border:1.5px solid var(--line-dark);border-radius:999px;
+    overflow:hidden;background:var(--surface);}
+  .theme-toggle button{appearance:none;-webkit-appearance:none;border:0;background:transparent;
+    color:var(--muted);font-family:var(--font-body);font-size:12px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;padding:9px 18px;cursor:pointer;
+    transition:background .2s ease,color .2s ease;}
+  .theme-toggle button[aria-pressed="true"]{background:var(--btn-bg);color:var(--btn-ink)}
+  .theme-toggle button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  /* ---------- centered content ---------- */
+  .notes{text-align:center}
+  .notes ul{display:inline-block;text-align:left}
+  .meta h2{text-align:center;font-family:var(--font-display)}
+  .hint{text-align:center}
+  .card{box-shadow:var(--shadow-card)}
+  h1{font-family:var(--font-display)}
+</style></head><body>
+<div class="topbar">
+  <div class="theme-toggle" role="group" aria-label="Theme">
+    <button type="button" data-set-theme="sunlight" aria-pressed="true">Dark</button>
+    <button type="button" data-set-theme="warmgray" aria-pressed="false">Light</button>
+  </div>
+</div>
 <header><h1>Tonal Geometries</h1><p><a href="https://artist.coattails.eth.limo/" style="color:inherit;text-decoration:none">Calvin Fought / Coattails</a></p><p style="margin-top:10px;text-transform:none;letter-spacing:.06em">TONGEO &middot; Series 6 &middot; 150 pieces</p><p style="margin-top:6px;text-transform:none;letter-spacing:.06em">Press S or Double-Tap for Sound</p></header>
 <div class="about"><p>Tonal Geometries is Series 6 by Calvin Fought (Coattails). It&rsquo;s 150 fully on-chain audiovisual pieces in which glowing Chladni sand glides across a turning sphere to a melody of its own, and no two tokens share the same traits.</p></div>
 <main><article class="card" data-src="token.html?hash=0x26ca83f51e4b30ac56444d4507b6f3266f9c304e795c3d9738cd756ca60296f3"><div class="frame"><img src="poster1.jpg" alt="Token 1 still" loading="lazy"><button class="play" aria-label="Play token 1">&#9654; Play</button></div>
@@ -63,4 +113,24 @@ document.querySelectorAll('.card').forEach(c=>c.querySelector('.play').addEventL
  if(active&&active!==c)stop(active);active=c;
  const f=document.createElement('iframe');f.src=c.dataset.src;f.allow='autoplay;fullscreen';f.title='Live token';
  c.querySelector('.frame').appendChild(f);c.querySelector('.play').style.display='none';}));
-</script></body></html>
+</script><script>
+  /* Theme toggle wiring (guide v1.1): sync pressed state, save the choice. */
+  (function(){
+    var root=document.documentElement;
+    var btns=document.querySelectorAll('[data-set-theme]');
+    function sync(){
+      var t=root.getAttribute('data-theme')||'sunlight';
+      btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-theme')===t?'true':'false');});
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){
+        var t=b.getAttribute('data-set-theme');
+        root.setAttribute('data-theme',t);
+        try{localStorage.setItem('coattails-theme',t);}catch(e){}
+        sync();
+      });
+    });
+    sync();
+  })();
+</script>
+</body></html>
