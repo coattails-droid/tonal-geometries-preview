@@ -40,7 +40,7 @@
   }
   :root { color-scheme: dark; }
   :root[data-theme="warmgray"] { color-scheme: light; }
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--font-body)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 var(--font-body)}
 header{padding:48px 20px 24px;text-align:center}h1{font-weight:400;color:var(--title);letter-spacing:.08em;margin:0 0 8px;font-size:clamp(22px,4vw,36px)}header p{margin:0;color:var(--muted);letter-spacing:.12em;font-size:13px;text-transform:uppercase}
 main{max-width:1100px;margin:0 auto;padding:16px 20px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px}
 .card{background:transparent;border:1px solid var(--line);border-radius:0;overflow:hidden}.frame{position:relative;aspect-ratio:1;background:#000}
@@ -66,6 +66,11 @@ dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:1
   .hint{text-align:center}
   .card{box-shadow:var(--shadow-card)}
   h1{font-family:var(--font-display)}
+
+  /* ---------- font settings (copied from Seeded/Tidal/Touring) ---------- */
+  h1{font-size:20px;letter-spacing:0.35em;font-weight:600}
+  header p{font-size:14px;letter-spacing:0.1em}
+  .meta h2{font-weight:600}
 </style></head><body>
 <div class="topbar">
   <div class="theme-toggle" role="group" aria-label="Theme">
